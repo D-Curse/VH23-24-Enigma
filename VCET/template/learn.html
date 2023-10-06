@@ -6,6 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    Working...
+    <h1>Voice Recognition</h1>
+    <form id="voice-recognition-form" method="post">
+        {% csrf_token %}
+        <button id="start-listening" type="button">Start Listening</button>
+    </form>    
+    <div id="result"></div>
+    
 </body>
+<script>
+    document.getElementById("start-listening").addEventListener("click", function() {
+        // Start voice recognition when the button is clicked
+    
+        // Get the CSRF token from the form
+        const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+    
+        fetch("/home/", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": csrfToken,  // Include the CSRF token in the headers
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                document.getElementById("result").textContent = "Error: " + data.error;
+            } else {
+                document.getElementById("result").textContent = "Success: " + data.message;
+                // Implement logic to move to the next word here
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById("result").textContent = "An error occurred.";
+        });
+    });
+    
+</script>
 </html>

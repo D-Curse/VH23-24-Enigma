@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Down RPG</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const player = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            speed: 2,
+            width: 32,
+            height: 32,
+        };
+
+        const walls = [
+            { x: 100, y: 100, width: 200, height: 20 },
+            { x: 300, y: 200, width: 20, height: 150 },
+        ];
+
+        const move = { up: false, down: false, left: false, right: false };
+
+        function checkCollisions() {
+            for (const wall of walls) {
+                if (
+                    player.x < wall.x + wall.width &&
+                    player.x + player.width > wall.x &&
+                    player.y < wall.y + wall.height &&
+                    player.y + player.height > wall.y
+                ) {
+                    player.x = Math.max(player.x, wall.x - player.width);
+                    player.x = Math.min(player.x, wall.x + wall.width);
+                    player.y = Math.max(player.y, wall.y - player.height);
+                    player.y = Math.min(player.y, wall.y + wall.height);
+                }
+            }
+        }
+
+        function update() {
+            if (move.up) player.y -= player.speed;
+            if (move.down) player.y += player.speed;
+            if (move.left) player.x -= player.speed;
+            if (move.right) player.x += player.speed;
+
+            checkCollisions();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#ff0000";
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+
+            ctx.fillStyle = "#808080";
+            for (const wall of walls) {
+                ctx.fillRect(wall.x, wall.y, wall.width, wall.height);
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        window.addEventListener("keydown", (e) => {
+            e.preventDefault();
+            if (e.key === "ArrowUp") move.up = true;
+            if (e.key === "ArrowDown") move.down = true;
+            if (e.key === "ArrowLeft") move.left = true;
+            if (e.key === "ArrowRight") move.right = true;
+        });
+
+        window.addEventListener("keyup", (e) => {
+            e.preventDefault();
+            if (e.key === "ArrowUp") move.up = false;
+            if (e.key === "ArrowDown") move.down = false;
+            if (e.key === "ArrowLeft") move.left = false;
+            if (e.key === "ArrowRight") move.right = false;
+        });
+
+        gameLoop();
+    </script>
+</body>
+</html>

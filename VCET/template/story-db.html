@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Slide</title>
+    <link rel="stylesheet" href="../static/css/story-db.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload a New Slide</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image">Image:</label>
+            <input type="file" name="image" accept="image/*" required>
+            <br>
+            <label for="audio">Audio:</label>
+            <input type="file" name="audio" accept="audio/*" required>
+            <br>
+            <label for="french_text">French Text:</label>
+            <textarea name="french_text" rows="4" required></textarea>
+            <br>
+            <label for="english_text">English Text:</label>
+            <textarea name="english_text" rows="4" required></textarea>
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>
