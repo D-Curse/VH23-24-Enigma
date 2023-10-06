@@ -13,14 +13,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fh(-f_ggqd*w^ro40=fixq&k4op3172%k_3t9w8qgkju-8(q)e'
+SECRET_KEY = 'django-insecure-n)^uy+@h59ntwe+8wvuhjf6w6o=ce1_k)r6s$i-dub5k!c+p49'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
