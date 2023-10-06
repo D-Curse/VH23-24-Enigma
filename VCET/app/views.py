@@ -65,4 +65,4 @@ def signup(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, "signup.html")
+    return render(request, "login.html")

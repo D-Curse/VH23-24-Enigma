@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+@font-face {
+    font-family: zioa;
+    src: url(../static/font/Zaio-Regular.woff);
+}
+@font-face {
+    font-family: raxtor;
+    src: url(../static/font/Raxtor-Bold.woff);
+}
+@font-face {
+    font-family: butler;
+    src: url(../static/font/ButlerStencil-Medium.woff);
+}
+.navbar{
+    color: white;
+    padding-top: 20px;
+    z-index: 999;
+    font-family: zioa;
+    position: absolute;
+    top: 1px;
+    gap: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    font-family: zioa;
+}
+.title{
+    font-size: 35px;
+    font-family: zioa;
+    z-index: 999;
+}
+.head1{
+    position: absolute;
+    top: 150px;
+    z-index: 999;
+    font-size: 80px;
+    font-family: zioa;
+    color: white;
+}
+.language-option{
+    margin-top: 300px;
+    z-index: 999;
+    font-family: zioa;
+}
+.grid-elements{
+    display: grid;
+    z-index: 999;
+    color: white;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+.lang-info{
+    padding: 60px 50px ;
+    display: flex;
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgba(48, 121, 224);
+    border-radius: 20px;
+}
+.img1{
+    margin-bottom: 20px;
+}
+.lang-info:hover{
+    opacity: .5;
+}
