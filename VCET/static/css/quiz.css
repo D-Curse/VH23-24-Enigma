@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+.container {
+    z-index: 999;
+    width: 100%;
+    max-width: 98%;
+    margin: 2px auto;
+    padding: 20px;
+    background: radial-gradient(circle at 50% 50%, rgba(1, 225, 255, 0.767) 0%, rgba(54, 46, 216, 0.69) 100%);
+    margin: -20px -20px -20px -20px;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 24px;
+}
+
+.question {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    z-index: 999;
+    background-color: #ffffff00;
+    border: none;
+    padding: 20px;
+    margin-top: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
+
+img {
+    width: 100%;
+    max-width: 25%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+
+}
+
+.option {
+    width: 100%;
+    max-width: 50%;
+    align-self: center;
+    display: block;
+
+    background-color: #ffffff00;
+    text-align: center;
+
+}
+
+button {
+
+    margin-left: 50px;
+    width: 100%;
+    max-width: 7%;
+    padding: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    border-radius: 9%;
+    border: 1px solid rgba(0, 0, 0, 0.504);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.712);
+}
+
+button:hover {
+    background-color: #031029;
+    color: #00e5ffe1;
+    border-color: #00e5ffe1;
+
+}
+
+button:active {
+    background-color: #031029;
+    color: #ffffff;
+    border-color: #ffffff;
+
+}
+
+
+
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: rgb(0, 208, 0);
+}
+
+.stars {
+    z-index: -9;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    100% { transform: rotate(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}

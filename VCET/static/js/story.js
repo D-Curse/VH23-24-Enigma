@@ -7,17 +7,19 @@ function showSlides() {
     }
     slideIndex++;
     if (slideIndex > slides.length) {
-        window.location.href = "/home/";
         return;
     }
     slides[slideIndex - 1].style.display = "block";
-    audioElements[slideIndex - 1].play();
 }
 
 showSlides();
 
-function translateSlides() {
+function replaySlides(audioElement) {
+    if (audioElement) {
+        audioElement.play();
+    }
 }
+
 
 function nextSlide() {
     showSlides();

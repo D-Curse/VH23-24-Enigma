@@ -7,75 +7,24 @@
     <link rel="stylesheet" href="../static/css/story.css">
 </head>
 <body>
-    <div class="slideshow-container">        
+    <div class="slideshow-container">     
+        {% for slide in slides %}
         <div class="mySlides fade">
-            <img src="../static/img/clause1.jpg" style="width:100%">
-            <audio src="../static/audio/French_Clause_1.mp3" autoplay></audio>
-            <button class="replay-btn btn">
-                Replay Audio
-                <audio src="../static/audio/French_Clause_1.mp3"></audio>
-            </button>
-            <p class="french">Il était une fois, dans un pays magique, un garçon nommé Pierre.</p>
-            <p>Once upon a time in a magical land, there was a boy named Pierre.</p>
+            <img src="{{ slide.image.url }}" style="width:100%" alt="Image">
+            <audio id="audio{{ slide.id }}" src="{{ slide.audio.url }}" autoplay></audio>
+            <button class="replay-btn btn" onclick="replaySlides({{ slide.id }})">Replay Audio</button>
+            <p class="french">{{ slide.french_text }}</p>
+            <p>{{ slide.english_text }}</p>
+            {{ slide.image.url }}
         </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause2.jpg" style="width:100%">
-            <p class="french">Un jour, il découvrit une carte au trésor dans le grenier de son grand-père.</p>
-            <p>One day, he discovered a treasure map in his grandpa's attic.</p>
-        </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause3.jpg" style="width:100%">
-            <p class="french">Pierre suivit la carte dans la forêt enchantée.</p>
-            <p>Pierre followed the map into the enchanted forest.</p>
-        </div>
-        <div class="mySlides fade">
-            <img src="../static/img/clause4.jpg" style="width:100%">
-            <p class="french">En chemin, il rencontra de nombreux défis.</p>
-            <p>Along the way, he encountered many challenges.</p>
-        </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause5.jpg" style="width:100%">
-            <p class="french">Il se lia d'amitié avec un écureuil de la Vallée des Noix qui lui montra le chemin du trésor.</p>
-            <p>He befriended a squirrel from Nuts Valley who showed him the way to the treasure.</p>
-        </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause6.jpg" style="width:100%">
-            <p class="french">Pierre finit par trouver la grotte du trésor après une aventure palpitante.</p>
-            <p>Pierre eventually found the treasure cave after an exciting adventure.</p>
-        </div>
-        <div class="mySlides fade">
-            <img src="../static/img/clause7.jpg" style="width:100%">
-            <p class="french">À l'intérieur, il découvrit un gros coffre au trésor brillant.</p>
-            <p>Inside, he found a big, glowing treasure chest.</p>
-        </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause8.jpg" style="width:100%">
-            <p class="french">Étonnamment, il n'y avait pas d'or à l'intérieur, juste d'innombrables livres remplis de connaissances infinies.</p>
-            <p>Surprisingly, it held no gold, just countless books filled with infinite knowledge.</p>
-        </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause9.jpg" style="width:100%">
-            <p class="french">Pierre tira des leçons importantes des livres et travailla dur pour améliorer sa vie.</p>
-            <p>Pierre learned important lessons from the books and worked hard to better his life.</p>
-        </div>
-        
-        <div class="mySlides fade">
-            <img src="../static/img/clause10.jpg" style="width:100%">
-            <p class="french">À la fin, il réussit et devint célèbre pour sa sagesse, réalisant que la connaissance était le plus grand trésor de tous.</p>
-            <p>In the end, he achieved success and became famous for his wisdom, realizing that knowledge was the greatest treasure of all.</p>
-        </div>
+        {% endfor %}
     </div>
     <br>
 
     <div class="translate-btn btn">
-        <button onclick="translateSlides()">Translate</button>
+        <button>Translate</button>
     </div>
+    
 
     <div class="next-btn btn">
         <button onclick="nextSlide()">Next</button>

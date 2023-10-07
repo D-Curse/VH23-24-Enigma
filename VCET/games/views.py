@@ -1,10 +1,13 @@
 from django.shortcuts import render
 import speech_recognition as sr
+from games.models import Slide
 from django.http import JsonResponse
 # Create your views here.
 
 def story(request):
-    return render(request, 'story.html')
+    database = Slide.objects.all()
+    print(database)
+    return render(request, 'story.html', {'slides':database})
 
 predefined_words = ["apple", "banana", "cherry", "date"]
 
@@ -35,3 +38,18 @@ def learn(request):
             return JsonResponse({'error': f"Could not request results; {e}"})
     
     return render(request, 'learn.html')
+
+def database(request):
+    if request.method == 'POST':
+        image = request.FILES['image']
+        audio = request.FILES['audio']
+        french_text = request.POST['french_text']
+        english_text = request.POST['english_text']
+
+        info = Slide(image=image, audio=audio, french_text=french_text, english_text=english_text)
+        info.save()
+
+    return render(request, 'story-db.html')
+
+def quiz(request):
+    return render(request, 'quiz.html')
