@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: zioa;
+    src: url(./font/Zaio-Regular.woff);
+}
+@font-face {
+    font-family: raxtor;
+    src: url(./font/Raxtor-Bold.woff);
+}
+@font-face {
+    font-family: butler;
+    src: url(./font/ButlerStencil-Medium.woff);
+}
+@font-face {
+    font-family: spartan;
+    src: url(./font/LeagueSpartan-Bold.woff);
+}
+html{
+    min-height: 100vh;
+}
+body{
+    font-family: spartan;
+    color: white;
+
+}
+.page-title{
+    text-align: center;
+    position: absolute;
+    top: 1px;
+}
+.memory-game {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+
+  }
+  
+  .memory-card {
+    width: 245px;
+    height: 305px; 
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    
+  }
+  img{
+    border-radius: 20px;
+    border: 2px solid rgba(0, 255, 255, 0.534);
+  }
+  .memory-card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
+  
+  .memory-card.flip {
+    transform: rotateY(180deg);
+  }
+  
+  .front-face,
+  .back-face {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    border-radius: 5px;
+    
+    backface-visibility: hidden;
+  }
+  
+  .front-face {
+    transform: rotateY(180deg);
+  }
